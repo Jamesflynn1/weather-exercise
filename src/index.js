@@ -3,9 +3,18 @@ import ReactDOM from 'react-dom';
 import './styling/index.scss';
 import Weather from './components/Weather';
 
-ReactDOM.render(
-  <React.StrictMode>
+
+export const WeatherContext = React.createContext('');
+
+const timeInADay = 8;
+
+const App = () => {
+  return(  <React.StrictMode>
+    <WeatherContext.Provider value = {"london"} timePeriod = {timeInADay}>
     <Weather />
-  </React.StrictMode>,
+    </ WeatherContext.Provider>
+  </React.StrictMode>);
+};
+ReactDOM.render(<App/>,
   document.getElementById('root')
 );
